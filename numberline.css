@@ -1,0 +1,81 @@
+/* Container for the entire number line */
+div.lineContainer {
+    height: 5rem;
+    padding: 1em;
+    counter-reset: dashes -6;
+}
+
+/* Styling specific to the first and last part of the line */
+span.line.edge {
+    width: 3em;
+}
+
+/*  */
+.edge:after {
+    content: '';
+    border: solid black;
+    border-width: 0 .1em .1em 0;
+    padding: .75em;
+    position: relative;
+    top: -.75em;
+}
+
+/* The ending arrow */
+.end:after {
+    float: right;
+    left: -.2em;
+    transform: rotate(-45deg);
+}
+
+/* The starting arrow */
+.start:after {
+    float: left;
+    left: .2em;
+    transform: rotate(135deg);
+}
+
+/* Bold the lines in the number range */
+span.line.bold {
+    height: .3em;
+}
+
+/* Normal lines */
+span.line {
+    float: left;
+    background-color: black;
+    height: .1em;
+    width: 4em;
+    margin-top: 1.25em;
+}
+
+/* Adding a circle on top of selected dashes */
+span.dash.selected:after {
+    content: '';
+    float: left;
+    margin: 0;
+    border-radius: 50%;
+    height: .75em;
+    width: .75em;
+    background-color: black;
+    position: relative;
+    left: -.34em;
+    top: -.25em;
+}
+
+/* Adding the number above the dashes using a counter */
+span.dash:before {
+    counter-increment: dashes;
+    content: counter(dashes);
+    position: relative;
+    top: -1.2em;
+    left: -.2em;
+}
+
+/* Styling for the dash itself */
+span.dash {
+    float: left;
+    background-color: black;
+    height: 2.5em;
+    width: .1em;
+
+}
